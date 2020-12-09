@@ -69,6 +69,21 @@ class PythonCalcTest:
         self.s1.setValue('Q')
         self.assign_parameters()
         self.python_calc.compute()
+        
+    @Test(tags=["math", "error"], expected_exceptions=(ValueError,))
+    def test_invalid_set_1(self):
+        preporter.info("Invalid value assigned to Float object.")
+        self.f1.setValue("B")
+
+    @Test(tags=["math", "error"], expected_exceptions=(AssertionError,))
+    def test_invalid_set_2(self):
+        preporter.info("Invalid value assigned to String object.")
+        self.s1.setValue(1)
+
+    @Test(tags=["math", "error"], expected_exceptions=(ValueError,))
+    def test_invalid_set_3(self):
+        preporter.info("Invalid value assigned to Float object.")
+        self.f2.setValue("A")
 
     @AfterMethod(always_run=True, description="Clean up")
     def after(self):
