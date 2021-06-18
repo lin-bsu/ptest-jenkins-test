@@ -1,1 +1,1 @@
-# pytest-jenkins-test
+# ptest-jenkins-test
